@@ -90,8 +90,8 @@ public class CacheClient {
     }
 
     /*
-     * Solve Cache Avalanche:
-     *   Many entries in cache expire at the same time or the cache is unavailable
+     * Solve Cache BreakDown:
+     *   The solution will use mutex lock to ensure only a thread can assess the database. But the cost is efficiency.
      */
     public <R,ID> R queryByID_MutexSolution(String keyPredix, ID id, String lockKeyPrefix, Long time, TimeUnit unit,
                                         Class<R> rClass, Function<ID, R> dbFallBack) {
